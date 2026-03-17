@@ -1,0 +1,66 @@
+<StackPanel>
+        <TextBox
+        Width="500"
+        Margin="10"
+        HorizontalAlignment="Left"
+        Watermark="поиск..."
+        Name="search_box"
+        KeyUp="search_box_KeyUp">
+        </TextBox>
+        <StackPanel
+        Spacing="5">
+            <ComboBox
+            SelectionChanged="name_box_SelectionChanged"
+            Name="name_box"
+            Margin="10,0,0,0"
+            PlaceholderText="по наименованию">
+    <ComboBoxItem Content="без сортировки"/>
+    <ComboBoxItem Content="по возрастанию"/>
+    <ComboBoxItem Content="по убыванию"/>
+            </ComboBox>
+            <ComboBox
+            SelectionChanged="cost_box_SelectionChanged"
+            Name="cost_box"
+            Margin="10,0,0,0"
+            PlaceholderText="по цене">
+    <ComboBoxItem Content="без сортировки"/>
+    <ComboBoxItem Content="по возрастанию"/>
+    <ComboBoxItem Content="по убыванию"/>
+            </ComboBox>
+            <ComboBox
+            SelectionChanged="type_box_SelectionChanged"
+            Name="type_box"
+            Margin="10,0,0,10"
+            PlaceholderText="по типу"/>
+        </StackPanel>
+        <ListBox
+        Name="product_list"
+        Height="500"
+        ItemsSource="{Binding Products}">
+   <ListBox.ItemTemplate>
+    <DataTemplate>
+     <StackPanel
+                    Spacing="5"
+                    Orientation="Horizontal">
+                        <Image 
+                        Height="50"
+                        Width="50"
+                        HorizontalAlignment="Left"
+                        Source="{Binding Image}">
+                        </Image>
+                        <StackPanel>
+      <TextBlock
+                        Text="{Binding Name}">
+                        </TextBlock>
+                        <TextBlock
+                        Text="{Binding Cost}">
+                        </TextBlock>
+                        <TextBlock
+                        Text="{Binding Descript}">
+                        </TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
